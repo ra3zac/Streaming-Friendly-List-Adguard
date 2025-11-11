@@ -1,0 +1,118 @@
+! Lars – Streaming Safe Rules für AdGuard Home
+! Zweck:
+!  - Aggressive Blocklisten weiter nutzen
+!  - Aber bekannte Streaming-Dienste (Disney+, Netflix, Prime Video, YouTube etc.)
+!    + wichtige Android-TV/Google-Backends nicht zerschießen.
+! Format: Adblock-/AdGuard-Syntax
+!  @@ = explizit erlauben (Whitelist-Regel)
+
+! =====================================================================
+! DISNEY+ – Playback, Login, DRM, Telemetrie
+! =====================================================================
+
+@@||disneyplus.com^
+@@||www.disneyplus.com^
+@@||dssott.com^
+@@||bamgrid.com^
+
+! Disney-CDNs und Medien-Hosts
+@@||disney-plus.net^
+@@||disney-plus.com^
+@@||disneyplus.bncdn.net^
+@@||disneyplus.com.ssl.sc.omtrdc.net^
+
+! Conviva – Quality/Telemetry (wird leider für Start benutzt)
+@@||conviva.com^
+@@||cws.conviva.com^
+
+! Disney Advertising – teilweise für App-Start/Session nötig
+@@||disneyadvertising.com^
+@@||ads.digital.disneyadvertising.com^
+@@||eu-central-1.ads.digital.disneyadvertising.com^
+
+! Braze – Messaging/Analytics
+@@||braze.com^
+@@||iad-*.braze.com^
+
+! =====================================================================
+! GENERELLE STREAMING-CDNs (werden von vielen Diensten genutzt)
+! Kann dazu führen, dass manche Werbe-/Tracking-Skripte durchrutschen,
+! dafür funktionieren aber nahezu alle Streaming-Apps stabil.
+! =====================================================================
+
+@@||akamaized.net^
+@@||akamaihd.net^
+@@||edgesuite.net^
+@@||cloudfront.net^
+@@||llnwd.net^
+@@||fastly.net^
+
+! =====================================================================
+! NETFLIX
+! =====================================================================
+
+@@||netflix.com^
+@@||nflxvideo.net^
+@@||nflximg.net^
+@@||nflxso.net^
+@@||nflxext.com^
+
+! New Relic / Telemetrie – wird u.a. von Netflix und anderen genutzt
+@@||bam.nr-data.net^
+
+! =====================================================================
+! AMAZON PRIME VIDEO
+! =====================================================================
+
+@@||primevideo.com^
+@@||primevideo.com.c.footprint.net^
+@@||amazonvideo.com^
+@@||media-amazon.com^
+@@||cloudfront.net^
+
+! =====================================================================
+! YOUTUBE / GOOGLE VIDEO
+! =====================================================================
+
+@@||youtube.com^
+@@||youtu.be^
+@@||ytimg.com^
+@@||googlevideo.com^
+@@||yt3.ggpht.com^
+
+! =====================================================================
+! ANDROID TV / GOOGLE PLAY SERVICES (wichtig für Nokia Streaming Box)
+! =====================================================================
+
+! Watson Frontend – genau diese Domain war bei dir geblockt
+@@||androidtvwatsonfe-pa.googleapis.com^
+
+! Generelles Google-API-Backend (viele Apps, Lizenzchecks, Login)
+@@||googleapis.com^
+@@||www.googleapis.com^
+@@||oauth.googleusercontent.com^
+
+! Play-Store / Lizenzprüfung / FCM
+@@||gvt1.com^
+@@||gvt2.com^
+@@||play.googleapis.com^
+@@||android.clients.google.com^
+
+! Statische Ressourcen (Fonts, JS, Bilder)
+@@||gstatic.com^
+
+! =====================================================================
+! SONSTIGE DIENSTE, DIE OFT STREAMING BEINFLUSSEN
+! =====================================================================
+
+! Akamai / CDN kombiniert mit Tracking – hier bewusst freigegeben,
+! um Playback-Probleme zu vermeiden.
+@@||akadns.net^
+
+! Adobe Analytics / Launch – häufig in Streaming-Apps integriert
+@@||adobedtm.com^
+@@||omtrdc.net^
+
+! =====================================================================
+! ENDE – weitere Regeln kannst du einfach unten anhängen.
+! =====================================================================
